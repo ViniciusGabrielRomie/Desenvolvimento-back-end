@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Desenvolvimento_back_end.Models
@@ -13,8 +14,10 @@ namespace Desenvolvimento_back_end.Models
         [Required(ErrorMessage = "Obrigatorio inserir a Placa")]
         public string Placa { get; set; }
         [Required(ErrorMessage = "Obrigatorio inserir o Ano de Fabricação")]
+        [Display(Name = "Ano de Fabricação")]
         public int AnoFabricacao { get; set; }
         [Required(ErrorMessage = "Obrigatorio inserir o Ano do Modelo")]
+        [Display(Name = "Ano do Modelo")]
         public int AnoModelo { get; set; }
     }
 }
