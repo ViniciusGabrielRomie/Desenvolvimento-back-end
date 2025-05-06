@@ -10,6 +10,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Views\Teste\**" />
+    <Content Remove="Views\Teste\**" />
+    <EmbeddedResource Remove="Views\Teste\**" />
+    <None Remove="Views\Teste\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Controllers\ConsumoController.cs" />
     <Compile Remove="Models\Class.cs" />
     <Compile Remove="Models\Class1.cs" />
   </ItemGroup>
