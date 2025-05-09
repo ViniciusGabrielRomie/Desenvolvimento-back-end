@@ -15,7 +15,7 @@ namespace Desenvolvimento_back_end.Controllers
 
         public IActionResult Index()
         {
-            return View();
+           return RedirectToAction("Index", "Veiculos");
         }
 
         public IActionResult Privacy()

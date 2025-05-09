@@ -1,16 +1,14 @@
 ﻿@model IEnumerable<Desenvolvimento_back_end.Models.Consumo>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Relatorio";
 }
 
-<h1>Lista de Consumos</h1>
-
-<p>
-    <a asp-action="Create">Criar novo consumo</a>
-</p>
+<h1>Relatorio do veiculo: @ViewBag.Veiculo.Nome</h1>
+<h3>Valor total: R$@ViewBag.Total</h3>
 <table class="table">
-	<thead>
+    <thead>
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Descricao)
             </th>
@@ -25,9 +23,6 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Veiculo)
             </th>
             <th></th>
         </tr>
@@ -49,14 +44,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Veiculo.Nome)
-            </td>
-            <td>
-                <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                    <a class="btn btn-info"  asp-action="Details" asp-route-id="@item.Id">Visualizar</a> |
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Deletar</a>
             </td>
         </tr>
 }

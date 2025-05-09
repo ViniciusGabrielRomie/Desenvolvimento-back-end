@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Adicionar Consumo</h1>
 
 <h4>Consumo</h4>
 <hr />
@@ -24,17 +24,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
+                <input id="Valor" name="Valor"  class="form-control" />
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Km" class="control-label"></label>
-                <input asp-for="Km" class="form-control" />
+                <input id="Km" name="Km" class="form-control" />
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="ViewBag.Tipos"></select>
+                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Combustivel>()"></select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -42,15 +42,13 @@
                 <select asp-for="VeiculoId" class ="form-control" asp-items="ViewBag.VeiculoId"></select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-primary">Voltar</a>
+                <input type="submit" value="Criar" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

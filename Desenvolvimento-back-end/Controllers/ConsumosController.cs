@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Desenvolvimento_back_end.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Desenvolvimento_back_end.Controllers
 {
+    [Authorize]
     public class ConsumosController : Controller
     {
         private readonly AppDbContext _context;
@@ -48,7 +50,6 @@ namespace Desenvolvimento_back_end.Controllers
         public IActionResult Create()
         {
             ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Nome");
-            ViewBag.Tipos = new SelectList(Enum.GetValues(typeof(Combustivel)));
             return View();
         }
 
@@ -82,7 +83,6 @@ namespace Desenvolvimento_back_end.Controllers
             {
                 return NotFound();
             }
-            ViewBag.Tipos = new SelectList(Enum.GetValues(typeof(Combustivel)));
             ViewData["VeiculoId"] = new SelectList(_context.Veiculos, "Id", "Nome", consumo.VeiculoId);
             return View(consumo);
         }

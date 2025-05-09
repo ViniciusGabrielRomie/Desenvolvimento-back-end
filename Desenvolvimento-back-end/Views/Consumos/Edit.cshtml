@@ -25,17 +25,17 @@
             </div>
             <div class="form-group">
                 <label asp-for="Valor" class="control-label"></label>
-                <input asp-for="Valor" class="form-control" />
+                <input value="@Model.Valor" id="Valor" name="Valor" class="form-control" />
                 <span asp-validation-for="Valor" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Km" class="control-label"></label>
-                <input asp-for="Km" class="form-control" />
+                <input value="@Model.Km" id="Km" name="Km" class="form-control" />
                 <span asp-validation-for="Km" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tipo" class="control-label"></label>
-                <select asp-for="Tipo" class="form-control" asp-items="ViewBag.Tipos"></select>
+                <select asp-for="Tipo" class="form-control" asp-items="Html.GetEnumSelectList<Combustivel>()"></select>
                 <span asp-validation-for="Tipo" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -44,14 +44,11 @@
                 <span asp-validation-for="VeiculoId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <a class="btn btn-primary" asp-action="Index">Voltar</a>
+                <input type="submit" value="Salvar" class="btn btn-success" />
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {
